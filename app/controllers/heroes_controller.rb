@@ -1,5 +1,5 @@
 class HeroesController < ApplicationController
-  before_action -> { doorkeeper_authorize! }, only: [:create, :destroy, :update, :show]
+  before_action -> { doorkeeper_authorize! }, only: [:create, :destroy, :update]
   before_action :set_hero, only: [:show, :update, :destroy]
 
   # GET /heroes
