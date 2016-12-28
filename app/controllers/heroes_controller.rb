@@ -3,7 +3,9 @@ class HeroesController < ApplicationController
 
   # GET /heroes
   def index
-    @heroes = Hero.all
+    name = params[:name]
+    @heroes = Hero.where('LOWER(name) LIKE ?', "%#{name.try(:downcase)}%").order(created_at: :desc)
+
 
     render json: @heroes
   end
