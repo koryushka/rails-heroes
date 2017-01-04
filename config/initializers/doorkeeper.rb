@@ -1,6 +1,7 @@
 Doorkeeper.configure do
   # Change the ORM that doorkeeper will use (needs plugins)
   orm :active_record
+  use_refresh_token
 
   # This block will be called to check whether the resource owner is authenticated or not.
   resource_owner_authenticator do
@@ -28,7 +29,7 @@ Doorkeeper.configure do
 
   # Access token expiration time (default 2 hours).
   # If you want to disable expiration, set this to nil.
-  # access_token_expires_in 2.hours
+  # access_token_expires_in 1.second
 
   # Assign a custom TTL for implicit grants.
   # custom_access_token_expires_in do |oauth_client|
